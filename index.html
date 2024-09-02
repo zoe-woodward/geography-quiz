@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>US States & World Capitals</h1>
+        <div class="instructions">
+            <p>Select a topic and answer the questions to test your knowledge! You win if you get 10 correct answers without making any mistakes. Make a mistake and you'll be back to the beginning.</p>
+        </div>
+        <div class="topic-selection">
+            <button id="states-button">US States</button>
+            <button id="world-button">World Capitals</button>
+        </div>
+        <div id="quiz-container" class="hidden">
+            <h2 id="question"></h2>
+            <div class="options">
+                <button class="option-button"></button>
+                <button class="option-button"></button>
+                <button class="option-button"></button>
+                <button class="option-button"></button>
+            </div>
+            <p id="score">Score: 0</p>
+        </div>
+        <div id="result" class="hidden">
+            <h2 id="result-message"></h2>
+            <button id="play-again">Play Again</button>
+        </div>
+    </div>
+</body>
+</html>
