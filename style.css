@@ -1,0 +1,38 @@
+
+body {
+    font-family: sans-serif;
+    background-color: rgb(122, 214, 205);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.topic-selection button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: rgb(48, 180, 166);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.topic-selection button:hover {
+    background-color:rgb(30, 189, 70);
+    font-weight: bold;
+}
+
