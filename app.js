@@ -1,4 +1,4 @@
-/*-------------------------------- Constants --------------------------------*/
+
 
 const states = [
     { 
@@ -496,14 +496,14 @@ const worldCapitals = [
 
 const winCondition = 10;
 
-/*-------------------------------- Variables --------------------------------*/
+
 
 let selectedTopic = [];
 let score = 0;
 
 
 
-/*------------------------ Cached Element References ------------------------*/
+
 const statesButton = document.getElementById('states-button');
 const worldButton = document.getElementById('world-button');
 const questionElement = document.getElementById('question');
@@ -513,9 +513,16 @@ const resultMessage = document.getElementById('result-message');
 const playAgainButton = document.getElementById('play-again');
 const quizContainer = document.getElementById('quiz-container');
 const resultContainer = document.getElementById('result');
+const instructions = document.getElementById('instructions');
 
 
-/*-------------------------------- Functions --------------------------------*/
+
+function shuffleQuestions(topic) {
+    for (let i = selectedTopic.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [selectedTopic[i], selectedTopic[j]] = [selectedTopic[j], selectedTopic[i]]; 
+    }
+}
 
 function startStatesQuiz() {
     startQuiz(states); 
@@ -531,12 +538,12 @@ function playAgain() {
 
 function startQuiz(topic) {
     selectedTopic = [...topic];
+    shuffleQuestions(selectedTopic);
     score = 0;
     quizContainer.classList.remove('hidden');
     statesButton.parentElement.classList.add('hidden');
     loadNextQuestion();
 }
-
 
 function loadNextQuestion() {
     const currentQuestion = selectedTopic.pop();
@@ -546,10 +553,7 @@ function loadNextQuestion() {
         button.onclick = () => checkAnswer(button, currentQuestion.answer);
     });
 }
-/* const getComputerChoice = () => {
-    const randomIndex = Math.floor(Math.random() * choices.length);  ///making a randm choice based on array length
-    computerChoice = choices[randomIndex];
-}*/
+
 
 function checkAnswer(button, correctAnswer) {
     if (button.textContent === correctAnswer) {
@@ -558,11 +562,15 @@ function checkAnswer(button, correctAnswer) {
 
         if (score === winCondition) {
             endGame(true);
+            const congratsSound = document.getElementById('congrats-sound');
+            congratsSound.play();
         } else {
             loadNextQuestion();
         }
     } else {
         endGame(false);
+        const oopsSound = document.getElementById('oops-sound');
+            oopsSound.play();
     }
 }
 
@@ -570,6 +578,7 @@ function checkAnswer(button, correctAnswer) {
 function endGame(isWinner) {
     quizContainer.classList.add('hidden');
     resultContainer.classList.remove('hidden');
+    instructions.classList.add('hidden');
 
     if (isWinner) {
         resultMessage.textContent = "Congratulations, you won! Bet you can't do it again..";
@@ -581,10 +590,11 @@ function endGame(isWinner) {
 function resetGame() {
     resultContainer.classList.add('hidden');
     statesButton.parentElement.classList.remove('hidden');
+    instructions.classList.remove('hidden');
     quizContainer.classList.add('hidden');
 }
 
-/*----------------------------- Event Listeners -----------------------------*/
+
 
 statesButton.addEventListener('click', startStatesQuiz);
 worldButton.addEventListener('click', startWorldQuiz);

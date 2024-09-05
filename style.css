@@ -1,7 +1,9 @@
 
 body {
     font-family: sans-serif;
-    background-color: rgb(122, 214, 205);
+    font-size: 1.5em;
+    background-color:rgb(187, 223, 220);
+    color: rgb(23, 166, 151);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,6 +14,7 @@ body {
 .container {
     text-align: center;
     background: white;
+    border: 2px solid rgb(23, 166, 151);
     padding: 20px;
     border-radius: 8px;
 }
@@ -22,9 +25,10 @@ body {
 
 
 .topic-selection button {
-    margin: 10px;
+    font-size: 1.5em;
+    margin: 50px;
     padding: 10px 20px;
-    background-color: rgb(48, 180, 166);
+    background-color: rgb(23, 166, 151);
     color: white;
     border: none;
     cursor: pointer;
@@ -32,7 +36,53 @@ body {
 }
 
 .topic-selection button:hover {
-    background-color:rgb(30, 189, 70);
+    background-color: rgb(49, 208, 73);
     font-weight: bold;
 }
 
+
+#question {
+    color: rgb(23, 166, 151);
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.option-button {
+    background-color: rgb(49, 208, 73);
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    width: 45%;
+}
+
+.option-button:hover {
+    font-weight: bold;
+}
+
+#play-again {
+    background-color: rgb(49, 208, 73);
+    color: white;
+    font-size: 2em;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#play-again:hover {
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .options {
+        flex-direction: column;
+    }
+
+    .option-button {
+        width: 100%;
+    }
+}
