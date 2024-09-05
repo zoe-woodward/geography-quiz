@@ -35,8 +35,7 @@ body {
     display: none;
 }
 
-
-.topic-selection button {
+#topic-selection button {
     font-size: 1.5em;
     margin: 30px;
     padding: 20px 60px;
@@ -46,14 +45,12 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    
 }
 
-.topic-selection button:hover {
+#topic-selection button:hover {
     background-color: rgb(25, 198, 221);
     font-weight: bold;
 }
-
 
 #question {
     color: rgb(23, 166, 151);
@@ -86,6 +83,7 @@ body {
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
+    width: 25%;
 }
 
 #play-again:hover {
@@ -97,14 +95,12 @@ body {
     .options {
         flex-direction: column;
     }
-
     .option-button {
         width: 100%;
     }
     .topic-selection {
         flex-direction: column; 
     }
-
     .topic-selection button {
         width: 100%; 
     }

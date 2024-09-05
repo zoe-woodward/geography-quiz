@@ -1,5 +1,3 @@
-
-
 const states = [
     { 
         question: "What is the capital of Alabama?", 
@@ -253,8 +251,6 @@ const states = [
     }
 ];
 
-
-
 const worldCapitals = [
     { 
         question: "What is the capital of Canada?", 
@@ -493,11 +489,9 @@ const worldCapitals = [
     }
 ];
 
-
 const winCondition = 10;
 let selectedTopic = [];
 let score = 0;
-
 
 const statesButton = document.getElementById('states-button');
 const topicSelection = document.getElementById('topic-selection');
@@ -513,7 +507,6 @@ const instructions = document.getElementById('instructions');
 const congratsSound = document.getElementById('congrats-sound');
 const oopsSound = document.getElementById('oops-sound');
 const title = document.getElementById('title');
-
 
 function shuffleQuestions(topic) {
     for (let i = selectedTopic.length - 1; i > 0; i--) {
@@ -547,12 +540,12 @@ function startQuiz(topic) {
 }
 
 function loadNextQuestion() {
-const currentQuestion = selectedTopic.pop();
-questionElement.textContent = currentQuestion.question;
-optionButtons.forEach((button, index) => {
-    button.textContent = currentQuestion.options[index];
-    button.onclick = () => checkAnswer(button, currentQuestion.answer);
-});
+    const currentQuestion = selectedTopic.pop();
+    questionElement.textContent = currentQuestion.question;
+    optionButtons.forEach((button, index) => {
+        button.textContent = currentQuestion.options[index];
+        button.onclick = () => checkAnswer(button, currentQuestion.answer);
+    });
 }
 
 
@@ -567,6 +560,7 @@ function checkAnswer(button, correctAnswer) {
         } else {
             loadNextQuestion();
         }
+
     } else {
         endGame(false);
         oopsSound.play();
