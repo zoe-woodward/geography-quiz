@@ -548,7 +548,6 @@ function loadNextQuestion() {
     });
 }
 
-
 function checkAnswer(button, correctAnswer) {
     if (button.textContent === correctAnswer) {
         score++;
@@ -567,7 +566,6 @@ function checkAnswer(button, correctAnswer) {
     }
 }
 
-   
 function endGame(isWinner) {
     quizContainer.classList.add('hidden');
     resultContainer.classList.remove('hidden');
@@ -588,7 +586,6 @@ function resetGame() {
     score = 0;
     scoreElement.textContent = `Score: ${score}`;
 }
-
 
 statesButton.addEventListener('click', startStatesQuiz);
 worldButton.addEventListener('click', startWorldQuiz);
