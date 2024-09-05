@@ -33,13 +33,9 @@ body {
 
 .hidden {
     display: none;
+    min-height: 0px;
 }
 
-#topic-selection {
-    display: flex;
-    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
-    justify-content: center; /* Center buttons horizontally */
-}
 
 #topic-selection button {
     font-size: 1.5em;
@@ -52,10 +48,6 @@ body {
     cursor: pointer;
     border-radius: 5px;
     height: 80px; 
-    box-sizing: border-box; 
-    display: flex;
-    align-items: center; 
-    justify-content: center;
 }
 
 #topic-selection button:hover {
