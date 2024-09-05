@@ -1,16 +1,20 @@
 # geography-quiz
 ## A quiz on US states and world capitals 
 
+![Game launch page](./Game%20screenshot.png)
+
 In this game, players can choose to answer questions on US States or World Capitals. 10 correct answers in a row means victory; but a single mistake means defeat. 
 
 The inspiration for the game is a personal desire to perform better in a weekly pub quiz; of which geography questions consistently form part of the team's downfall!
 
+The quiz game utilizes two arrays of questions, shuffling them each time to make sure players aren't 
+
 **Find the game here**:
 
-**Planning materials**:
 
-**Attributions**:
-https://unsplash.com/photos/relief-map-of-the-world-with-soft-shadows-and-pastel-colors-concept-of-travel-and-exploration-3d-rendering-J5KImIpmScc
+**Planning materials**:
+[Find the initial plan here](./Quiz%20project%20planning.pdf)
+
 
 **Technologies used**:
 * HTML

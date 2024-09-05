@@ -495,11 +495,8 @@ const worldCapitals = [
 
 
 const winCondition = 10;
-
-
 let selectedTopic = [];
 let score = 0;
-let currentQuestionIndex = 0;
 
 
 const statesButton = document.getElementById('states-button');
@@ -541,7 +538,6 @@ function startQuiz(topic) {
     selectedTopic = [...topic];
     shuffleQuestions(selectedTopic);
     score = 0;
-    currentQuestionIndex = 0; 
     scoreElement.textContent = `Score: ${score}`;
     quizContainer.classList.remove('hidden');
     topicSelection.classList.add('hidden');
@@ -567,13 +563,13 @@ function checkAnswer(button, correctAnswer) {
 
         if (score === winCondition) {
             endGame(true);
-            //congratsSound.play();
+            congratsSound.play();
         } else {
             loadNextQuestion();
         }
     } else {
         endGame(false);
-        //oopsSound.play();
+        oopsSound.play();
     }
 }
 
@@ -583,9 +579,9 @@ function endGame(isWinner) {
     resultContainer.classList.remove('hidden');
     
     if (isWinner) {
-        resultMessage.textContent = "CONGRATULATIONS! 10 in a row means you win! Can you do it again..?";
+        resultMessage.textContent = "CONGRATULATIONS! 10 in a row means you win! Can you do it again?";
     } else {
-        resultMessage.textContent = "Sorry, you lost this time! Keep trying!";
+        resultMessage.textContent = `Sorry, you lost this time! Your final score was ${score}. Keep trying!`;
     }
 }
 
@@ -598,7 +594,6 @@ function resetGame() {
     score = 0;
     scoreElement.textContent = `Score: ${score}`;
 }
-
 
 
 statesButton.addEventListener('click', startStatesQuiz);
