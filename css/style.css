@@ -35,6 +35,12 @@ body {
     display: none;
 }
 
+#topic-selection {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+    justify-content: center; /* Center buttons horizontally */
+}
+
 #topic-selection button {
     font-size: 1.5em;
     margin: 30px;
@@ -45,6 +51,11 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    height: 80px; 
+    box-sizing: border-box; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
 }
 
 #topic-selection button:hover {
@@ -101,10 +112,13 @@ body {
     .topic-selection {
         flex-direction: column; 
     }
-    .topic-selection button {
+    #topic-selection button {
         width: 100%; 
     }
     #banner {
         height: 150px; 
+    }
+    #play-again {
+        width: 100%;
     }
 }

@@ -12,8 +12,14 @@ The quiz game utilizes two arrays of questions, shuffling them each time the qui
 <br />
 
 
+[**Play the game here**](https://zoe-woodward.github.io/geography-quiz/)
 
+<br />
 
+**Planning materials**:
+[Find the initial plan here](./Quiz-project-planning.pdf)
+
+<br />
 
 
 **Technologies used**:
@@ -37,13 +43,6 @@ Some potential upgrades for future versions include:
 
 ***Mobile App:*** Develop a mobile app version for a more accessible and portable gaming experience.
 
-<br />
 
 
 
-**[Play the game here]**()
-
-<br />
-
-**Planning materials**:
-[Find the initial plan here](./Quiz-project-planning.pdf)
