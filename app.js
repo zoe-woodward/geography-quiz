@@ -254,11 +254,8 @@ const states = [
 ];
 
 
-//console.log (states.length);
 
-
-
-const world = [
+const worldCapitals = [
     { 
         question: "What is the capital of Canada?", 
         options: ["Ottawa", "Vancouver", "Toronto", "Montreal"], 
@@ -497,11 +494,14 @@ const world = [
 ];
 
 
-let selectedTopic = [];
-let score = 0;
 const winCondition = 10;
 
 /*-------------------------------- Variables --------------------------------*/
+
+let selectedTopic = [];
+let score = 0;
+
+
 
 /*------------------------ Cached Element References ------------------------*/
 const statesButton = document.getElementById('states-button');
@@ -511,15 +511,81 @@ const optionButtons = document.querySelectorAll('.option-button');
 const scoreElement = document.getElementById('score');
 const resultMessage = document.getElementById('result-message');
 const playAgainButton = document.getElementById('play-again');
-
+const quizContainer = document.getElementById('quiz-container');
+const resultContainer = document.getElementById('result');
 
 
 /*-------------------------------- Functions --------------------------------*/
 
+function startStatesQuiz() {
+    startQuiz(states); 
+}
+
+function startWorldQuiz() {
+    startQuiz(worldCapitals);
+}
+
+function playAgain() {
+    resetGame(); 
+}
+
+function startQuiz(topic) {
+    selectedTopic = [...topic];
+    score = 0;
+    quizContainer.classList.remove('hidden');
+    statesButton.parentElement.classList.add('hidden');
+    loadNextQuestion();
+}
 
 
+function loadNextQuestion() {
+    const currentQuestion = selectedTopic.pop();
+    questionElement.textContent = currentQuestion.question;
+    optionButtons.forEach((button, index) => {
+        button.textContent = currentQuestion.options[index];
+        button.onclick = () => checkAnswer(button, currentQuestion.answer);
+    });
+}
 /* const getComputerChoice = () => {
     const randomIndex = Math.floor(Math.random() * choices.length);  ///making a randm choice based on array length
     computerChoice = choices[randomIndex];
 }*/
+
+function checkAnswer(button, correctAnswer) {
+    if (button.textContent === correctAnswer) {
+        score++;
+        scoreElement.textContent = `Score: ${score}`; 
+
+        if (score === winCondition) {
+            endGame(true);
+        } else {
+            loadNextQuestion();
+        }
+    } else {
+        endGame(false);
+    }
+}
+
+   
+function endGame(isWinner) {
+    quizContainer.classList.add('hidden');
+    resultContainer.classList.remove('hidden');
+
+    if (isWinner) {
+        resultMessage.textContent = "Congratulations, you won! Bet you can't do it again..";
+    } else {
+        resultMessage.textContent = "Sorry, you lost this time! Keep trying!";
+    }
+}
+
+function resetGame() {
+    resultContainer.classList.add('hidden');
+    statesButton.parentElement.classList.remove('hidden');
+    quizContainer.classList.add('hidden');
+}
+
 /*----------------------------- Event Listeners -----------------------------*/
+
+statesButton.addEventListener('click', startStatesQuiz);
+worldButton.addEventListener('click', startWorldQuiz);
+playAgainButton.addEventListener('click', resetGame);
