@@ -10,6 +10,7 @@ The inspiration for the game is a personal desire to perform better in a weekly 
 **Planning materials**:
 
 **Attributions**:
+https://unsplash.com/photos/relief-map-of-the-world-with-soft-shadows-and-pastel-colors-concept-of-travel-and-exploration-3d-rendering-J5KImIpmScc
 
 **Technologies used**:
 * HTML

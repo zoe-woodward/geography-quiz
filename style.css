@@ -1,3 +1,11 @@
+#banner {
+    width: 100%; 
+    max-width: 1240px;
+    height: 300px; 
+    object-fit: cover; 
+    display: block;
+    margin: 0;
+}
 
 body {
     font-family: sans-serif;
@@ -5,10 +13,12 @@ body {
     background-color:rgb(187, 223, 220);
     color: rgb(23, 166, 151);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -17,6 +27,8 @@ body {
     border: 2px solid rgb(23, 166, 151);
     padding: 20px;
     border-radius: 8px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .hidden {
@@ -26,45 +38,48 @@ body {
 
 .topic-selection button {
     font-size: 1.5em;
-    margin: 50px;
-    padding: 10px 20px;
+    margin: 30px;
+    padding: 20px 60px;
+    width: 40%;
     background-color: rgb(23, 166, 151);
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    
 }
 
 .topic-selection button:hover {
-    background-color: rgb(49, 208, 73);
+    background-color: rgb(25, 198, 221);
     font-weight: bold;
 }
 
 
 #question {
     color: rgb(23, 166, 151);
-    margin-bottom: 15px;
+    margin-bottom: 50px;
     font-size: 2em;
 }
 
 .option-button {
-    background-color: rgb(49, 208, 73);
+    background-color: rgb(23, 166, 151);
     color: white;
     font-size: 1.5em;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     padding: 10px;
-    margin: 5px;
+    margin: 10px;
     width: 45%;
 }
 
 .option-button:hover {
     font-weight: bold;
+    background-color: rgb(25, 198, 221);
 }
 
 #play-again {
-    background-color: rgb(49, 208, 73);
+    background-color: rgb(23, 166, 151);
     color: white;
     font-size: 2em;
     border: none;
@@ -75,6 +90,7 @@ body {
 
 #play-again:hover {
     font-weight: bold;
+    background-color: rgb(25, 198, 221);
 }
 
 @media (max-width: 600px) {
@@ -84,5 +100,15 @@ body {
 
     .option-button {
         width: 100%;
+    }
+    .topic-selection {
+        flex-direction: column; 
+    }
+
+    .topic-selection button {
+        width: 100%; 
+    }
+    #banner {
+        height: 150px; 
     }
 }

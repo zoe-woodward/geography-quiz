@@ -497,14 +497,13 @@ const worldCapitals = [
 const winCondition = 10;
 
 
-
 let selectedTopic = [];
 let score = 0;
-
-
+let currentQuestionIndex = 0;
 
 
 const statesButton = document.getElementById('states-button');
+const topicSelection = document.getElementById('topic-selection');
 const worldButton = document.getElementById('world-button');
 const questionElement = document.getElementById('question');
 const optionButtons = document.querySelectorAll('.option-button');
@@ -514,7 +513,9 @@ const playAgainButton = document.getElementById('play-again');
 const quizContainer = document.getElementById('quiz-container');
 const resultContainer = document.getElementById('result');
 const instructions = document.getElementById('instructions');
-
+const congratsSound = document.getElementById('congrats-sound');
+const oopsSound = document.getElementById('oops-sound');
+const title = document.getElementById('title');
 
 
 function shuffleQuestions(topic) {
@@ -540,18 +541,22 @@ function startQuiz(topic) {
     selectedTopic = [...topic];
     shuffleQuestions(selectedTopic);
     score = 0;
+    currentQuestionIndex = 0; 
+    scoreElement.textContent = `Score: ${score}`;
     quizContainer.classList.remove('hidden');
-    statesButton.parentElement.classList.add('hidden');
+    topicSelection.classList.add('hidden');
+    instructions.classList.add('hidden');
+    title.classList.add('hidden');
     loadNextQuestion();
 }
 
 function loadNextQuestion() {
-    const currentQuestion = selectedTopic.pop();
-    questionElement.textContent = currentQuestion.question;
-    optionButtons.forEach((button, index) => {
-        button.textContent = currentQuestion.options[index];
-        button.onclick = () => checkAnswer(button, currentQuestion.answer);
-    });
+const currentQuestion = selectedTopic.pop();
+questionElement.textContent = currentQuestion.question;
+optionButtons.forEach((button, index) => {
+    button.textContent = currentQuestion.options[index];
+    button.onclick = () => checkAnswer(button, currentQuestion.answer);
+});
 }
 
 
@@ -562,15 +567,13 @@ function checkAnswer(button, correctAnswer) {
 
         if (score === winCondition) {
             endGame(true);
-            const congratsSound = document.getElementById('congrats-sound');
-            congratsSound.play();
+            //congratsSound.play();
         } else {
             loadNextQuestion();
         }
     } else {
         endGame(false);
-        const oopsSound = document.getElementById('oops-sound');
-            oopsSound.play();
+        //oopsSound.play();
     }
 }
 
@@ -578,10 +581,9 @@ function checkAnswer(button, correctAnswer) {
 function endGame(isWinner) {
     quizContainer.classList.add('hidden');
     resultContainer.classList.remove('hidden');
-    instructions.classList.add('hidden');
-
+    
     if (isWinner) {
-        resultMessage.textContent = "Congratulations, you won! Bet you can't do it again..";
+        resultMessage.textContent = "CONGRATULATIONS! 10 in a row means you win! Can you do it again..?";
     } else {
         resultMessage.textContent = "Sorry, you lost this time! Keep trying!";
     }
@@ -589,9 +591,12 @@ function endGame(isWinner) {
 
 function resetGame() {
     resultContainer.classList.add('hidden');
-    statesButton.parentElement.classList.remove('hidden');
+    topicSelection.classList.remove('hidden');
     instructions.classList.remove('hidden');
     quizContainer.classList.add('hidden');
+    title.classList.remove('hidden');
+    score = 0;
+    scoreElement.textContent = `Score: ${score}`;
 }
 
 
